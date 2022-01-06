@@ -14,6 +14,13 @@ export class ParentComponent implements OnInit {
   //sending data from parent to child is like event binding.
   public message="";
 
+  //pipes
+  public variable = "testing";
+  public person = {
+    firstname : "Devanshee",
+    lastname : "Vankani"
+  }
+
   ngOnInit(): void {
   }
 
