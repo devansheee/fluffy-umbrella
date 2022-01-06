@@ -8,7 +8,11 @@ import { ChildComponent } from '../child/child.component';
 export class ParentComponent implements OnInit {
 
   constructor() { }
+  //sending data from parent to child like data binding
   public name = "Devansheeeeee speaking from parent component to child component.";
+
+  //sending data from parent to child is like event binding.
+  public message="";
 
   ngOnInit(): void {
   }

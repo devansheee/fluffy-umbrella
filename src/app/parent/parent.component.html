@@ -1,4 +1,5 @@
 <div>
     <!-- tag name : child component; attribute : child variable; attribute value : parents's data -->
-   <app-child [parentData]="name"></app-child>
+    <h2>{{message}}</h2>
+   <app-child (childEvent)="message=$event" [parentData]="name"></app-child>
 </div>
