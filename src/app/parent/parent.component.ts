@@ -21,6 +21,8 @@ export class ParentComponent implements OnInit {
     lastname : "Vankani"
   }
 
+  public date = new Date();
+
   ngOnInit(): void {
   }
 
