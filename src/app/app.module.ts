@@ -8,6 +8,9 @@ import { EventBindingComponent } from './event-binding/event-binding.component';
 import { FormsModule } from '@angular/forms';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeesService } from 'src/services/employees.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,14 +18,16 @@ import { ChildComponent } from './child/child.component';
     TestComponent,
     EventBindingComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [EmployeesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
