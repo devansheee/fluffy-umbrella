@@ -7,10 +7,10 @@ import { Router } from '@angular/router';
     <h3>You've selected department :{{ deptInt }}</h3>
 
     <p>
-      <button (click)="showOverview()">Overview</button> <br> <br>
+      <button (click)="showOverview()">Overview</button> <br> 
       <button (click)="showContact()">Contact</button>
     </p>
-    <router-outlet></router-outlet>
+    <!-- <router-outlet></router-outlet>  currently commenting the changes because it's suddenly showing some error-->
     <p>
       <button (click)="previous()">Previous</button> <br />
       <br />
