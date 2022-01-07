@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { EventBindingComponent } from './event-binding/event-binding.component';
 import { FormsModule } from '@angular/forms';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeesService } from 'src/services/employees.service';
 import {HttpClientModule} from '@angular/common/http';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DepartmentDetailComponent } from './department-detail/department-detail.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {HttpClientModule} from '@angular/common/http';
     EventBindingComponent,
     ParentComponent,
     ChildComponent,
-    EmployeeListComponent
+    routingComponents,
+    PageNotFoundComponent,
+    DepartmentDetailComponent,
   ],
   imports: [
     BrowserModule,

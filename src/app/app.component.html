@@ -1,8 +1,22 @@
-<body>
-  <h2>hello from app component</h2>
+
+  <!-- <h2>hello from app component</h2> -->
   
   <!-- <app-test></app-test>  This is Data Binding -->
   <!-- <app-event-binding></app-event-binding> This is event binding  -->
   <!-- <app-parent></app-parent> -->
-  <app-employee-list></app-employee-list>
-</body>
+  <!-- <app-employee-list></app-employee-list> -->
+
+
+<h2>Routing and Navigation</h2>
+
+<div>
+  <nav>
+    <a routerLink="/departments" routerLinkActive="active">Department</a> 
+
+    <a routerLink="/employees" outerLinkActive="active">Employees</a>
+  </nav>
+</div>
+
+<router-outlet>
+  <!-- router view goes here! -->
+</router-outlet>
