@@ -1,0 +1,86 @@
+<div class="container-fluid">
+    <h1>Enrollment Form</h1>
+    <form #userForm="ngForm">
+
+        <!-- this brings the data from view to the class
+        {{userForm.value| json}} 
+
+        <hr>
+        this brings the data from the class to the view
+        {{userModel | json}} -->
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <!-- apply bootstrap class for form validations. do class binding using [] and apply the classes conditionally -->
+            <input type="text" #name="ngModel" [class.is-invalid]='name.invalid && name.touched' class="form-control" name="username" [(ngModel)]='userModel.name' required>
+            <small class="text-danger" [class.d-none]='name.valid || name.untouched'> Name is required.</small> 
+        </div>
+
+        <!-- #name =>  {{name.className}}   : classnames will be given -->
+        <!-- its more convinient to work with properties as it gives us the boolean values as below! -->
+        <!-- {{name.untouched}}
+        {{name.pristine}}
+        {{name.valid}} -->
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" [(ngModel)]='userModel.email'>
+          
+        </div>
+        <div class="form-group">
+            <label for="contact">Contact</label>
+            <input type="tel" #phone='ngModel' pattern="^\d{10}$" [class.is-invalid]='phone.touched && phone.invalid' class="form-control" name="contact" [(ngModel)]='userModel.phone' required>
+            <!-- <small class='text-danger' [class.d-none]='phone.valid || phone.touched'>The phone number is required and must be 10 digits.</small> -->
+            <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+                <small class="text-danger" *ngIf="phone.errors['required']">Phone number is required</small>
+                <small class="text-danger" *ngIf="phone.errors['pattern']">Phone number must be of 10 digits</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <select name="topics" #topic='ngModel' [class.is-invalid]='topicHasError && topic.touched' [(ngModel)]='userModel.topic' (blur)="validateTopic(topic.value)" (change)="validateTopic(topic.value)">
+                <option value="default">I am interested in</option>
+                <option *ngFor="let topic of topics">{{topic}}</option>
+            </select>
+            <small class="text-danger" [class.d-none]='!topicHasError || topic.untouched'>Please select a topic</small>
+        </div>
+        <div class="mb-3">
+            <label for="timepref">Time Preference</label>
+            <div class="form-check">
+                
+                <input type="radio" name="timePref" class="form-check-input" value="morning" [(ngModel)]='userModel.timepref'>
+                <label class="form-input-label">Morning (10:00 - 12:00)</label>
+            </div>
+
+            <div class="form-check">
+                <input type="radio" name="timePref" class="form-check-input" value="morning" [(ngModel)]='userModel.timepref'>
+                <label class="form-input-label">Morning (5:00 - 7:00)</label>
+            </div>
+        </div>
+        <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" name="promo" [(ngModel)]='userModel.subscribe'>
+            <label for="promo" class="form-check-label">Send me promotional offers</label>
+        </div>
+
+        <!-- NGMODEL GROUP DIRECTIVE -->
+         
+        <!-- <div ngModelGroup="addess">
+            <div class="form-group">
+                <label for="street">Street</label>
+                <input type="text" name="street" class="form-control" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" name="city" class="form-control" ngModel>
+            </div> 
+
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" name="state" class="form-control" ngModel>
+            </div>
+        </div> -->
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
+
+<!-- in template driven form : we have 3 directives {ngform, ngmodel, ngmodelgroup } -->
