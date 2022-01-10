@@ -1,6 +1,10 @@
 <div class="container-fluid">
     <h1>Enrollment Form</h1>
-    <form #userForm="ngForm">
+    <div class="alert alert-danger" *ngIf="errorMessage">
+        {{errorMessage}}
+    </div>
+    <!-- novalidate prevents browser validations -->
+    <form #userForm="ngForm" *ngIf='!submitted' (ngSubmit)="onSubmit()" novalidate>
 
         <!-- this brings the data from view to the class
         {{userForm.value| json}} 
@@ -8,6 +12,8 @@
         <hr>
         this brings the data from the class to the view
         {{userModel | json}} -->
+
+        {{userForm.form.valid}}
 
         <div class="form-group">
             <label for="name">Name</label>
@@ -53,7 +59,7 @@
 
             <div class="form-check">
                 <input type="radio" name="timePref" class="form-check-input" value="morning" [(ngModel)]='userModel.timepref'>
-                <label class="form-input-label">Morning (5:00 - 7:00)</label>
+                <label class="form-input-label">Evening (5:00 - 7:00)</label>
             </div>
         </div>
         <div class="form-check mb-3">
@@ -79,7 +85,9 @@
             </div>
         </div> -->
 
-        <button class="btn btn-primary" type="submit">Submit</button>
+
+        <!-- adding property binding to the submit btn  -->
+        <button [disabled]="!userForm.form.valid || topicHasError" class="btn btn-primary" type="submit">Submit</button>
     </form>
 </div>
 
