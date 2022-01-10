@@ -6,13 +6,17 @@ import { DepartmentListComponent } from './department-list/department-list.compo
 import { DepartmentOverviewComponent } from './department-overview/department-overview.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { TdfComponent } from './tdf/tdf.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   //default route & empty path 
   //{path: '', component: EmployeeListComponent},// pathMatch : prefix, full
-  {path: '', redirectTo: '/departments', pathMatch: 'full'},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
   {path: 'departments', component: DepartmentListComponent},
   {path: 'employees', component: EmployeeListComponent},
+  {path:'tdform', component: TdfComponent},
   //adding child routes to the department details component.
   {
     path: 'departments/:id', 
@@ -36,5 +40,7 @@ export const routingComponents = [DepartmentListComponent,
                                   PageNotFoundComponent, 
                                   DepartmentDetailComponent,
                                   DepartmentOverviewComponent,
-                                  DepartmentContactComponent
+                                  DepartmentContactComponent,
+                                  TdfComponent,
+                                  HomeComponent,
                                 ]

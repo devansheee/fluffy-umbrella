@@ -14,6 +14,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { DepartmentOverviewComponent } from './department-overview/department-overview.component';
 import { DepartmentContactComponent } from './department-contact/department-contact.component';
+import { TdfComponent } from './tdf/tdf.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { DepartmentContactComponent } from './department-contact/department-cont
     DepartmentDetailComponent,
     DepartmentOverviewComponent,
     DepartmentContactComponent,
+    TdfComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
