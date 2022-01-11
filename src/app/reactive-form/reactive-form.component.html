@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <h2>Registration Form</h2>
+
+    {{registrationForm.value | json}}
+    <br><br>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input formControlName='username' [class.is-invalid]="username?.invalid && username?.touched" type="text"
+                class="form-control">
+            <small [class.d-none]="username?.valid || username?.untouched" class="text-danger">Username is
+                required</small>
+            <!--THIS DIV ISNT WORKING.
+                 <div *ngIf="username?.invalid &&  username?.touched">
+                <small *ngIf="username?.errors['required']" class="text-danger">Username is required</small>
+                <small *ngIf="username?.errors?.minLength" class="text-danger">Username must be of atleast 3 charectors</small>
+                 <small *ngIf="username?.errors?.forbidden" class="text-danger">Username must be of atleast 3 charectors</small>
+            </div> -->
+        </div>
+
+        <div class="form-group">
+            <label for="password">password</label>
+            <input formControlName='password' type="password" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="confirmpwd">Confirm Password</label>
+            <input formControlName='confirmPassword' type="password" class="form-control">
+            <!-- validator class not working :#  this is cross field validation-->
+
+        </div>
+
+        <div formGroupName='address'>
+
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" formControlName='city' class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" formControlName='state' class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="postalcode">Postal Code</label>
+                <input type="text" formControlName='postalCode' class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" formControlName='email' class="form-control">
+        </div>
+
+        <div class="form-check mb-3">
+            <input type="checkbox" formControlName='subscribe' class="form-check-input">
+            <label for="subscribe" class="form-check-label">Send me promotional mails</label>
+        </div>
+
+
+        <button class="btn btn-primary" type="submit" [disabled]="!registrationForm.valid">Register</button>
+        <!-- <button class="btn btn-secondary" (click)="loadApiData()">Load API data</button> -->
+    </form>
+</div>

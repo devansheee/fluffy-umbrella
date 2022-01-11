@@ -8,6 +8,8 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TdfComponent } from './tdf/tdf.component';
 import { HomeComponent } from './home/home.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+
 
 const routes: Routes = [
   //default route & empty path 
@@ -17,6 +19,7 @@ const routes: Routes = [
   {path: 'departments', component: DepartmentListComponent},
   {path: 'employees', component: EmployeeListComponent},
   {path:'tdform', component: TdfComponent},
+  {path: 'reactive-form', component: ReactiveFormComponent},
   //adding child routes to the department details component.
   {
     path: 'departments/:id', 
@@ -43,4 +46,5 @@ export const routingComponents = [DepartmentListComponent,
                                   DepartmentContactComponent,
                                   TdfComponent,
                                   HomeComponent,
+                                  ReactiveFormComponent,
                                 ]

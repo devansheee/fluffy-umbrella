@@ -16,6 +16,8 @@ import { DepartmentOverviewComponent } from './department-overview/department-ov
 import { DepartmentContactComponent } from './department-contact/department-contact.component';
 import { TdfComponent } from './tdf/tdf.component';
 import { HomeComponent } from './home/home.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,12 +34,14 @@ import { HomeComponent } from './home/home.component';
     DepartmentContactComponent,
     TdfComponent,
     HomeComponent,
+    ReactiveFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [EmployeesService],
   bootstrap: [AppComponent]
